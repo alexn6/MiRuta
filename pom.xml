@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>MiRuta_2017</groupId>
+    <artifactId>MiRuta_2017</artifactId>
+    <version>0.1.0</version>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.7.RELEASE</version>
+    </parent>
+
+    <properties>
+<!--        agregados de otro projecto, ver q hace cada uno-->
+        <spring.version>4.3.7.RELEASE</spring.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+<!--        agregados de otro projecto, ver q hace cada uno-->
+        <java.version>1.8</java.version>
+    </properties>
+
+    <dependencies>
+        <!-- ******* conexion a la DB y anotaciones ******* -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
+        <!-- ********************************************** -->
+        <!-- ******* Use MySQL Connector-J ******* -->
+<!--        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>-->
+        <!-- ************************************* -->
+        <!-- ******* controla las anotaciones ******* -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+        <!-- **************************************** -->
+        <!-- ********* https://mvnrepository.com/artifact/org.postgis/postgis-jdbc ********* -->
+<!--        <dependency>
+            <groupId>org.postgis</groupId>
+            <artifactId>postgis-jdbc</artifactId>
+            <version>1.3.3</version>
+        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/net.postgis/postgis-jdbc -->
+        <dependency>
+            <groupId>net.postgis</groupId>
+            <artifactId>postgis-jdbc</artifactId>
+            <version>2.1.7.2</version>
+        </dependency>
+        <!-- ******************************************************************************* -->
+        
+        <!-- ******************************** TESTING ******************************* -->
+        <!-- ************ https://mvnrepository.com/artifact/junit/junit ************ -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+	</dependency>
+        <!-- ************************************************************************ -->
+
+<!--        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>-->
+<!--        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <type>jar</type>
+        </dependency>-->
+    </dependencies>
+
+    <build>
+        <plugins>
+<!--            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                        agregados de otro projecto, ver q hace cada uno
+                <version>1.5.7.RELEASE</version>
+                <configuration>
+                    <mainClass>${spring.boot.mainclass}</mainClass>
+                </configuration>
+                <executions>
+                  <execution>
+                    <goals>
+                      <goal>repackage</goal>
+                    </goals>
+                  </execution>
+                </executions>
+            </plugin>-->
+                <!--        agregados de otro projecto, ver q hace cada uno-->
+<!--        ######   agregados de otro proyecto2 ###### -->
+<!--            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <version>1.3.2</version>
+                <configuration>
+                    <mainClass>${start-class}</mainClass>
+                    <mainClass>hello.Application</mainClass>
+                </configuration>
+            </plugin>-->
+<!--        ######   agregados de otro proyecto2 ###### -->
+        </plugins>
+    </build>
+
+<!--    <repositories>
+        <repository>
+            <id>spring-releases</id>
+            <name>Spring Releases</name>
+            <url>https://repo.spring.io/libs-release</url>
+        </repository>
+        <repository>
+            <id>org.jboss.repository.releases</id>
+            <name>JBoss Maven Release Repository</name>
+            <url>https://repository.jboss.org/nexus/content/repositories/releases</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-releases</id>
+            <name>Spring Releases</name>
+            <url>https://repo.spring.io/libs-release</url>
+        </pluginRepository>
+    </pluginRepositories>
+    <name>MiRuta_2017</name>-->
+</project>
