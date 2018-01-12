@@ -49,16 +49,19 @@ public class UnidadTransporte implements Serializable{
     @Column(name = "nombre")
     private String nombre;
     
-    @Column(name = "horaInicio")
+//    @Column(name = "horaInicio")
+    @Column(name = "horainicio")
     private LocalTime horaInicio;
     
-    @Column(name = "horaFin")
+//    @Column(name = "horaFin")
+    @Column(name = "horafin")
     private LocalTime horaFin;
     
     @Column(name = "frecuencia")
     private String frecuencia;
     
-    @Column(name = "precioBoleto")
+//    @Column(name = "precioBoleto")
+    @Column(name = "precioboleto")
     private String precioBoleto;
     
     public UnidadTransporte(){        

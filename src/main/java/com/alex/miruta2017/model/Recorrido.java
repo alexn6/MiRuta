@@ -46,7 +46,7 @@ public class Recorrido implements Serializable{
     // de una manera mas comoda, realizar cambios de unidad facilmente por ejemplo o editar recorridos ya credos
 //    @OneToOne(mappedBy = "recorrido", cascade = CascadeType.ALL, 
 //              fetch = FetchType.LAZY, optional = true)
-    @OneToOne(mappedBy = "recorrido", cascade = CascadeType.ALL, 
+    @OneToOne(mappedBy = "recorrido", cascade = CascadeType.MERGE, 
               fetch = FetchType.LAZY, optional = true)
     private UnidadTransporte unidad;
     

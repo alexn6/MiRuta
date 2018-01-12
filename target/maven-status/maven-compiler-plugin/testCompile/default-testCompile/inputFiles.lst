@@ -1,5 +1,9 @@
+/home/alextc6/NetBeansProjects/MiRuta_2017/src/test/java/com/alex/miruta2017/test/model/UnidadTransporteTest.java
+/home/alextc6/NetBeansProjects/MiRuta_2017/src/test/java/com/alex/miruta2017/test/model/UsuarioTest.java
 /home/alextc6/NetBeansProjects/MiRuta_2017/src/test/java/com/alex/miruta2017/test/config/ParadaConfig.java
-/home/alextc6/NetBeansProjects/MiRuta_2017/src/test/java/com/alex/miruta2017/test/parada/UsuarioTest.java
-/home/alextc6/NetBeansProjects/MiRuta_2017/src/test/java/com/alex/miruta2017/test/parada/PuntoInteresTest.java
-/home/alextc6/NetBeansProjects/MiRuta_2017/src/test/java/com/alex/miruta2017/test/parada/ParadaTest.java
+/home/alextc6/NetBeansProjects/MiRuta_2017/src/test/java/com/alex/miruta2017/test/model/RecorridoTest.java
+/home/alextc6/NetBeansProjects/MiRuta_2017/src/test/java/com/alex/miruta2017/test/model/DatosEmpresaTest.java
 /home/alextc6/NetBeansProjects/MiRuta_2017/src/test/java/com/alex/miruta2017/test/config/ConfigTest.java
+/home/alextc6/NetBeansProjects/MiRuta_2017/src/test/java/com/alex/miruta2017/test/model/PuntoInteresTest.java
+/home/alextc6/NetBeansProjects/MiRuta_2017/src/test/java/com/alex/miruta2017/test/model/EmpresaTest.java
+/home/alextc6/NetBeansProjects/MiRuta_2017/src/test/java/com/alex/miruta2017/test/model/ParadaTest.java

@@ -3,27 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.alex.miruta2017.test.parada;
+package com.alex.miruta2017.test.model;
 
 import com.alex.miruta2017.interfaces.RepositorioParada;
-import com.alex.miruta2017.interfaces.RepositorioPtoInteres;
 import com.alex.miruta2017.model.Parada;
-import com.alex.miruta2017.model.PuntoInteres;
 import com.alex.miruta2017.test.config.ConfigTest;
-import com.alex.miruta2017.test.config.ParadaConfig;
-import com.alex.miruta2017.test.parada.ParadaTest.TestController;
-import java.util.List;
+import com.alex.miruta2017.test.model.ParadaTest.TestController;
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Component;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
@@ -34,8 +28,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 // para reconocer las anotaciones
 @RunWith(SpringRunner.class)
 //@DataJpaTest
-//@ContextConfiguration( classes = { TestController.class, ParadaConfig.class} )
-@ContextConfiguration(classes = ConfigTest.class)
+@ContextConfiguration( classes = { TestController.class, ConfigTest.class} )
+//@ContextConfiguration(classes = ConfigTest.class)
 @SpringBootTest
 public class ParadaTest {
     
@@ -47,20 +41,19 @@ public class ParadaTest {
     
     @Test
     public void test(){
-//        Iterable<PuntoInteres> list = contTest.findAll();
-//
-//        if ( list == null || !list.iterator().hasNext() ){
-//            Assert.fail( "No se encontraron puntos de interes" );
-//        }
-//        else{
-//            for ( PuntoInteres ptoInteres : list ){
-//                System.out.println( "Parada encontrada: " + ptoInteres.toString());
-//            }
-//        }
-//        
-//        assertThat(contTest.findAll())
-//                .isNull();
-////            .hasSize(2);
+        Iterable<Parada> list = contTest.findAll();
+
+        if ( list == null || !list.iterator().hasNext() ){
+            Assert.fail( "No se encontraron puntos de interes" );
+        }
+        else{
+            for ( Parada parada : list ){
+                System.out.println( "Parada encontrada: " + parada.toString());
+            }
+        }
+        
+        assertThat(contTest.findAll())
+            .hasSize(2);
         System.out.println("Salto es test!!!!!");
     }
     
@@ -68,16 +61,16 @@ public class ParadaTest {
     @Component
     static class TestController{
         @Autowired
-        private RepositorioPtoInteres repo;
+        private RepositorioParada repo;
 
         /**
          * @return
          */
-        public Iterable<PuntoInteres> findAll(){
+        public Iterable<Parada> findAll(){
             System.out.println("**** Punto de Interes encontrados con findAll(): ****");
 
-            for (PuntoInteres punto : repo.findAll()) {
-                System.out.println("Punto encontrado: "+punto.toString());
+            for (Parada parada : repo.findAll()) {
+                System.out.println("Punto encontrado: "+parada.toString());
             }
             return repo.findAll();
         }

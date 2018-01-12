@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.alex.miruta2017.test.parada;
+package com.alex.miruta2017.test.model;
 
 import com.alex.miruta2017.interfaces.RepositorioUsuario;
 import com.alex.miruta2017.model.Usuario;
 import com.alex.miruta2017.test.config.ConfigTest;
-import com.alex.miruta2017.test.parada.UsuarioTest.TestController;
+import com.alex.miruta2017.test.model.UsuarioTest.TestController;
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Assert;
 import org.junit.Test;
@@ -50,7 +50,7 @@ public class UsuarioTest {
         }
         
         assertThat(contTest.findAll())
-            .hasSize(4);
+            .hasSize(2);
 //        System.out.println("Salto es test!!!!!");
     }
     

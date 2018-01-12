@@ -61,6 +61,10 @@ public class Empresa implements Serializable{
 //        this.unidad = unidad;
     }
 
+    public Long getId() {
+        return id;
+    }
+    
     public String getNombre() {
         return nombre;
     }

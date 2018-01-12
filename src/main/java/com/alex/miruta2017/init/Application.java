@@ -165,11 +165,11 @@ public class Application {
     public CommandLineRunner cargaInicialUnidadTransporte(RepositorioUnidadTransporte repoUniTransporte, RepositorioEmpresa repoEmpresa) {
         return (args) -> {
 //            UnidadTransporte unidad;
-//            unidad = new UnidadTransporte("Unidad1", LocalTime.of(8, 0), LocalTime.of(22, 0), "20", "9.50", repoEmpresa.findOne(8L));
+//            unidad = new UnidadTransporte("Unidad1", LocalTime.of(8, 0), LocalTime.of(22, 0), "20", "9.50", repoEmpresa.findOne(5L));
 //            repoUniTransporte.save(unidad);
 //            log.info("Se guardo la unidad 1");
 //            
-//            unidad = new UnidadTransporte("Unidad2", LocalTime.of(7, 30), LocalTime.of(22, 15), "15", "11.00", repoEmpresa.findOne(9L));
+//            unidad = new UnidadTransporte("Unidad2", LocalTime.of(7, 30), LocalTime.of(22, 15), "15", "11.00", repoEmpresa.findOne(6L));
 //            repoUniTransporte.save(unidad);
 //            log.info("Se guardo la unidad 2");
 //

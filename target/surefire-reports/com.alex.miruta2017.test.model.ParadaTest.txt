@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.alex.miruta2017.test.model.ParadaTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.811 sec - in com.alex.miruta2017.test.model.ParadaTest
