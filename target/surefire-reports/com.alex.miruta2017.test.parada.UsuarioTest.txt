@@ -1,0 +1,13 @@
+-------------------------------------------------------------------------------
+Test set: com.alex.miruta2017.test.parada.UsuarioTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.845 sec <<< FAILURE! - in com.alex.miruta2017.test.parada.UsuarioTest
+test(com.alex.miruta2017.test.parada.UsuarioTest)  Time elapsed: 0.058 sec  <<< FAILURE!
+java.lang.AssertionError: 
+Expected size:<2> but was:<4> in:
+<[Usuario lider, mail=mailLider,
+    Usuario alex, mail=mail,
+    Usuario lider, mail=mailLider,
+    Usuario alex, mail=mail]>
+	at com.alex.miruta2017.test.parada.UsuarioTest.test(UsuarioTest.java:53)
+

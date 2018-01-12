@@ -5,25 +5,19 @@
  */
 package com.alex.miruta2017.test.parada;
 
-import com.alex.miruta2017.interfaces.RepositorioParada;
 import com.alex.miruta2017.interfaces.RepositorioPtoInteres;
-import com.alex.miruta2017.model.Parada;
 import com.alex.miruta2017.model.PuntoInteres;
 import com.alex.miruta2017.test.config.ConfigTest;
-import com.alex.miruta2017.test.config.ParadaConfig;
-import com.alex.miruta2017.test.parada.ParadaTest.TestController;
-import java.util.List;
+import com.alex.miruta2017.test.parada.PuntoInteresTest.TestController;
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Component;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
@@ -33,37 +27,32 @@ import org.springframework.test.context.junit4.SpringRunner;
 @EnableJpaRepositories("com.alex.miruta2017.interfaces")
 // para reconocer las anotaciones
 @RunWith(SpringRunner.class)
-//@DataJpaTest
-//@ContextConfiguration( classes = { TestController.class, ParadaConfig.class} )
-@ContextConfiguration(classes = ConfigTest.class)
+@ContextConfiguration( classes = { TestController.class, ConfigTest.class} )
 @SpringBootTest
-public class ParadaTest {
+public class PuntoInteresTest {
     
-    public ParadaTest(){}
+    public PuntoInteresTest(){}
     
     @Autowired
     private TestController contTest;
-
     
     @Test
     public void test(){
-//        Iterable<PuntoInteres> list = contTest.findAll();
-//
-//        if ( list == null || !list.iterator().hasNext() ){
-//            Assert.fail( "No se encontraron puntos de interes" );
-//        }
-//        else{
-//            for ( PuntoInteres ptoInteres : list ){
-//                System.out.println( "Parada encontrada: " + ptoInteres.toString());
-//            }
-//        }
-//        
-//        assertThat(contTest.findAll())
-//                .isNull();
-////            .hasSize(2);
-        System.out.println("Salto es test!!!!!");
+        Iterable<PuntoInteres> list = contTest.findAll();
+
+        if ( list == null || !list.iterator().hasNext() ){
+            Assert.fail( "No se encontraron puntos de interes" );
+        }
+        else{
+            for ( PuntoInteres puntoInteres : list ){
+                System.out.println( "Puntos de interes encontrados: " + puntoInteres.toString());
+            }
+        }
+        
+        assertThat(contTest.findAll())
+            .hasSize(2);
+//        System.out.println("Salto es test!!!!!");
     }
-    
     
     @Component
     static class TestController{
@@ -74,12 +63,8 @@ public class ParadaTest {
          * @return
          */
         public Iterable<PuntoInteres> findAll(){
-            System.out.println("**** Punto de Interes encontrados con findAll(): ****");
-
-            for (PuntoInteres punto : repo.findAll()) {
-                System.out.println("Punto encontrado: "+punto.toString());
-            }
             return repo.findAll();
         }
     }
+    
 }
