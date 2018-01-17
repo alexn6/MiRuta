@@ -6,28 +6,29 @@
 package com.alex.miruta2017.model;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import org.postgis.Geometry;
 import org.postgis.Point;
 
 /**
  *
  * @author alextc6
  */
-@Entity(name = "parada")
-@Table(name = "parada")
-public class Parada extends PuntoRecorrido implements Serializable{
+@Entity(name = "puntorecorrido")
+@Table(name = "puntorecorrido")
+// crea una nueva tabla por cada subclase, se unen los atributos de las 2 clases
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+public class PuntoRecorrido implements Serializable{
     
     private static final long serialVersionUID = 1L;
     @Id
@@ -36,45 +37,56 @@ public class Parada extends PuntoRecorrido implements Serializable{
     @GeneratedValue
     private Long id;
     
-    public Parada(){
-        super();
+    @Column(name = "coordenada")
+    private Point coordenada;
+    
+    @Column(name = "descripcion")
+    private String descripcion;
+    
+    @ManyToOne(cascade = CascadeType.MERGE)
+    // los recorridos no son solo de las unidades de transporte, puede ser con puntos q no sean paradas
+    @JoinColumn(name="Recorrido_ID", nullable = true)
+    private Recorrido recorrido;
+    
+    public PuntoRecorrido(){        
     }
     
-    public Parada(Point coordenada, String descripcion){
-        super(coordenada, descripcion);
+    public PuntoRecorrido(Point coordenada, String descripcion){
+        this.descripcion = descripcion;
+        this.coordenada = coordenada;
     }
-
+    
     public Long getId() {
         return id;
     }
     
     public String getDescripcion() {
-        return super.getDescripcion();
+        return descripcion;
     }
 
     public void setDescripcion(String descripcion) {
-        super.setDescripcion(descripcion);
+        this.descripcion = descripcion;
     }
 
     public Point getCoordenada() {
-        return super.getCoordenada();
+        return coordenada;
     }
 
     public void setCoordenada(Point coordenada) {
-        super.setCoordenada(coordenada);
+        this.coordenada = coordenada;
     }
 
     public Recorrido getRecorrido() {
-        return super.getRecorrido();
+        return recorrido;
     }
 
     public void setRecorrido(Recorrido recorrido) {
-        super.setRecorrido(recorrido);
+        this.recorrido = recorrido;
     }
     
     @Override
     public String toString() {
-        return super.getCoordenada().toString(); //To change body of generated methods, choose Tools | Templates.
+        return this.coordenada.toString(); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

@@ -6,28 +6,21 @@
 package com.alex.miruta2017.model;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import org.postgis.Geometry;
 import org.postgis.Point;
 
 /**
  *
  * @author alextc6
  */
-@Entity(name = "parada")
-@Table(name = "parada")
-public class Parada extends PuntoRecorrido implements Serializable{
+@Entity(name = "comun")
+@Table(name = "comun")
+public class Comun extends PuntoRecorrido implements Serializable{
     
     private static final long serialVersionUID = 1L;
     @Id
@@ -36,11 +29,11 @@ public class Parada extends PuntoRecorrido implements Serializable{
     @GeneratedValue
     private Long id;
     
-    public Parada(){
+    public Comun(){
         super();
     }
     
-    public Parada(Point coordenada, String descripcion){
+    public Comun(Point coordenada, String descripcion){
         super(coordenada, descripcion);
     }
 
@@ -76,5 +69,4 @@ public class Parada extends PuntoRecorrido implements Serializable{
     public String toString() {
         return super.getCoordenada().toString(); //To change body of generated methods, choose Tools | Templates.
     }
-    
 }

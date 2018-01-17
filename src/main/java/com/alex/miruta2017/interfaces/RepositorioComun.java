@@ -5,7 +5,7 @@
  */
 package com.alex.miruta2017.interfaces;
 
-import com.alex.miruta2017.model.Parada;
+import com.alex.miruta2017.model.Comun;
 import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 
@@ -13,6 +13,8 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author alextc6
  */
-public interface RepositorioParada extends CrudRepository<Parada, Long>{
-    Optional<Parada> findByDescripcion(String descripcion);
+public interface RepositorioComun extends CrudRepository<Comun, Long>{
+    
+    Optional<Comun> findByDescripcion(String descripcion);
+    
 }

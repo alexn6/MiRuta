@@ -29,7 +29,7 @@ import javax.validation.constraints.NotNull;
 public class Recorrido implements Serializable{
     
     @OneToMany(cascade = CascadeType.MERGE, mappedBy = "recorrido")
-    private List<Parada> paradas;
+    private List<PuntoRecorrido> puntos;
     
     private static final long serialVersionUID = 1L;
     @Id
@@ -53,22 +53,18 @@ public class Recorrido implements Serializable{
     public Recorrido(){
     }
     
-    public Recorrido(String color, List<Parada> paradas, UnidadTransporte unidad){
+    public Recorrido(String color, List<PuntoRecorrido> puntos, UnidadTransporte unidad){
         this.color = color;
-        this.paradas = paradas;
+        this.puntos = puntos;
         this.unidad = unidad;
     }
     
-//    public Recorrido(String colorunidad){
-//        this.color = color;
-//    }
-
-    public List<Parada> getParadas() {
-        return paradas;
+    public List<PuntoRecorrido> getpuntos() {
+        return puntos;
     }
 
-    public void setParadas(List<Parada> paradas) {
-        this.paradas = paradas;
+    public void setParadas(List<PuntoRecorrido> puntos) {
+        this.puntos = puntos;
     }
 
     public String getColor() {

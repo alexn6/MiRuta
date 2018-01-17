@@ -5,15 +5,20 @@
  */
 package com.alex.miruta2017.init;
 
+import com.alex.miruta2017.interfaces.RepositorioComun;
 import com.alex.miruta2017.interfaces.RepositorioEmpresa;
+import com.alex.miruta2017.interfaces.RepositorioEsquina;
 import com.alex.miruta2017.interfaces.RepositorioParada;
 import com.alex.miruta2017.interfaces.RepositorioPtoInteres;
 import com.alex.miruta2017.interfaces.RepositorioRecorrido;
 import com.alex.miruta2017.interfaces.RepositorioUnidadTransporte;
 import com.alex.miruta2017.interfaces.RepositorioUsuario;
+import com.alex.miruta2017.model.Comun;
 import com.alex.miruta2017.model.Empresa;
+import com.alex.miruta2017.model.Esquina;
 import com.alex.miruta2017.model.Parada;
 import com.alex.miruta2017.model.PuntoInteres;
+import com.alex.miruta2017.model.PuntoRecorrido;
 import com.alex.miruta2017.model.Recorrido;
 import com.alex.miruta2017.model.UnidadTransporte;
 import com.alex.miruta2017.model.Usuario;
@@ -64,10 +69,10 @@ public class Application {
         return (args) -> {
 //            Parada p;
 //            // guardamos algunas paradas
-//            p = new Parada("ranchoLider",new Point(-65.0435781612698, -42.76403644138906));
+//            p = new Parada(new Point(-65.0435781612698, -42.76403644138906), "ranchoLider");
 //            repositorio.save(p);
 //            log.info("Se creo una parada en el rancho del lider - Punto: "+p.toString());
-//            p = new Parada("unRanchito", new Point(-65.04562200453915, -42.75792890613414));
+//            p = new Parada(new Point(-65.04562200453915, -42.75792890613414), "unRanchito");
 //            repositorio.save(p);
 //            log.info("Se creo una parada en el otro rancho - Punto: "+p.toString());
 //
@@ -123,6 +128,37 @@ public class Application {
 //            log.info("**** Empresas guardadas: ****");
 //            for (Empresa empresa : repoEmpresa.findAll()) {
 //                log.info(empresa.toString());
+//            }
+//            log.info("*********************************************");
+        };
+    }
+    
+//    ####################################################################################
+//    ##################################### Esquina y comun ######################################
+    @Bean
+    public CommandLineRunner cargaInicialEsquinaComun(RepositorioEsquina repoEsquina, RepositorioComun repoComun) {
+        return (args) -> {
+//            Esquina puntoEsq;
+//            Comun puntoComun;
+//            
+//            puntoEsq = new Esquina(new Point(-65.03970639255681, -42.76892813211024), "esquina1");
+//            repoEsquina.save(puntoEsq);
+//            
+//            puntoComun = new Comun(new Point(-65.03639654663243, -42.76895963634532), "punto comun");
+//            repoComun.save(puntoComun);
+//
+//            // buscamos todas las paradas a modo de prueba
+//            log.info("**** Esquina guardadas: ****");
+//            for (Esquina esquina : repoEsquina.findAll()) {
+//                log.info(esquina.toString());
+//            }
+//            
+//            log.info("*********************************************");
+//            
+//            // buscamos todas las paradas a modo de prueba
+//            log.info("**** Puntos comun guardados: ****");
+//            for (Comun ptoComun : repoComun.findAll()) {
+//                log.info(ptoComun.toString());
 //            }
 //            log.info("*********************************************");
         };
@@ -185,39 +221,44 @@ public class Application {
 //    ######################################################################################
 //    ##################################### Recorrido ######################################
     @Bean
-    public CommandLineRunner cargaInicialRecorrido(RepositorioRecorrido repoRecorrido,
-                                        RepositorioParada repoParada, RepositorioUnidadTransporte repoUniTRansporte) {
+    public CommandLineRunner cargaInicialRecorrido(RepositorioRecorrido repoRecorrido, RepositorioEsquina repoEsquina,
+                                        RepositorioParada repoParada, RepositorioUnidadTransporte repoUniTRansporte,
+                                        RepositorioComun repoComun) {
         return (args) -> {
 //            Recorrido reco;
+//            PuntoRecorrido ptoRecorrido;
 //            Parada parada;
-//            List<Parada> paradas = new ArrayList<>();
+//            List<PuntoRecorrido> paradas = new ArrayList<>();
 //            
-//            // creamos y agregamos las paradas al recorrido
-//            parada = new Parada("p1", new Point(-42.77347646555213, -65.04964397695699));
-//            paradas.add(parada);
-//            parada = new Parada("p2", new Point(-42.77303150153067, -65.04829214361348));
-//            paradas.add(parada);
-//            parada = new Parada("p3", new Point(-42.772598347642486, -65.0469993188683));
-//            paradas.add(parada);
-//            parada = new Parada("p4", new Point(-42.77214943950719, -65.04572795179524));
-//            paradas.add(parada);
+//            // *********** creamos un recorrido buscando puntos ya creados *************
+//            paradas.add(repoParada.findOne(1L));
+//            paradas.add(repoParada.findOne(2L));
+//            paradas.add(repoEsquina.findOne(7L));
+//            paradas.add(repoComun.findOne(8L));
 //            
-//            // guardamos algunos recorridos
-//            reco = new Recorrido("blanco", paradas, repoUniTRansporte.findOne(9L));
+//            reco = new Recorrido("blanco", paradas, repoUniTRansporte.findOne(11L));
 //            repoRecorrido.save(reco);
-//            log.info("Se creo el recorrido 1: "+reco.toString());
+//            log.info("Se creo el recorrido 1, con puntos ya guardados: "+reco.toString());
 //            
-//            parada = new Parada("p11", new Point(-42.76980246330086, -65.0503306224648));
-//            paradas.add(parada);
-//            parada = new Parada("p22", new Point(-42.769349596918005, -65.0491236284081));
-//            paradas.add(parada);
-//            parada = new Parada("p33", new Point(-42.7688140289225, -65.048565728933));
-//            paradas.add(parada);
+//            // *********** creamos un recorrido buscando puntos nuevos *************
+//            ptoRecorrido = new Parada(new Point(-42.77347646555213, -65.04964397695699), "p1");
+//            paradas.add(ptoRecorrido);
+//            ptoRecorrido = new Parada(new Point(-42.77303150153067, -65.04829214361348), "p2");
+//            paradas.add(ptoRecorrido);
+//            ptoRecorrido = new Parada(new Point(-42.772598347642486, -65.0469993188683), "p3");
+//            paradas.add(ptoRecorrido);
+//            ptoRecorrido = new Esquina(new Point(-42.77214943950719, -65.04572795179524), "esquina 1");
+//            paradas.add(ptoRecorrido);
+//            ptoRecorrido = new Comun(new Point(-42.76980246330086, -65.0503306224648), "punto comun 2");
+//            paradas.add(ptoRecorrido);
+//            ptoRecorrido = new Comun(new Point(-42.769349596918005, -65.0491236284081), "pto comun 3");
+//            paradas.add(ptoRecorrido);
+//            ptoRecorrido = new Esquina(new Point(-42.7688140289225, -65.048565728933), "esquina 2");
+//            paradas.add(ptoRecorrido);
 //
-//            // guardamos algunos recorridos
-//            reco = new Recorrido("gris", paradas, repoUniTRansporte.findOne(9L));
+//            reco = new Recorrido("gris", paradas, repoUniTRansporte.findOne(12L));
 //            repoRecorrido.save(reco);
-//            log.info("Se creo el recorrido 2: "+reco.toString());
+//            log.info("Se creo el recorrido 2, con nuevos puntos: "+reco.toString());
 //
 //            // buscamos todas las paradas a modo de prueba
 //            log.info("**** Recorridos encontrados con findAll(): ****");
