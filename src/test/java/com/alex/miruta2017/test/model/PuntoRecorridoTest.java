@@ -5,10 +5,10 @@
  */
 package com.alex.miruta2017.test.model;
 
-import com.alex.miruta2017.interfaces.RepositorioParada;
-import com.alex.miruta2017.model.Parada;
+import com.alex.miruta2017.interfaces.RepositorioPtoRecorrido;
+import com.alex.miruta2017.model.PuntoRecorrido;
 import com.alex.miruta2017.test.config.ConfigTest;
-import com.alex.miruta2017.test.model.ParadaTest.TestController;
+import com.alex.miruta2017.test.model.PuntoRecorridoTest.TestController;
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Assert;
 import org.junit.Test;
@@ -27,13 +27,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 @EnableJpaRepositories("com.alex.miruta2017.interfaces")
 // para reconocer las anotaciones
 @RunWith(SpringRunner.class)
-//@DataJpaTest
 @ContextConfiguration( classes = { TestController.class, ConfigTest.class} )
-//@ContextConfiguration(classes = ConfigTest.class)
 @SpringBootTest
-public class ParadaTest {
+public class PuntoRecorridoTest {
     
-    public ParadaTest(){}
+    public PuntoRecorridoTest(){}
     
     @Autowired
     private TestController contTest;
@@ -41,19 +39,19 @@ public class ParadaTest {
     
     @Test
     public void test(){
-        Iterable<Parada> list = contTest.findAll();
+        Iterable<PuntoRecorrido> list = contTest.findAll();
 
         if ( list == null || !list.iterator().hasNext() ){
-            Assert.fail( "No se encontraron paradas" );
+            Assert.fail( "No se encontraron puntos recorrido" );
         }
         else{
-            for ( Parada parada : list ){
-                System.out.println( "Parada encontrada: " + parada.toString());
+            for ( PuntoRecorrido ptoRecorrido : list ){
+                System.out.println( "Punto comun encontrado: " + ptoRecorrido.toString());
             }
         }
         
         assertThat(contTest.findAll())
-            .hasSize(2);
+            .hasSize(4);
         
 //        System.out.println("Salto es test!!!!!");
     }
@@ -62,18 +60,19 @@ public class ParadaTest {
     @Component
     static class TestController{
         @Autowired
-        private RepositorioParada repo;
+        private RepositorioPtoRecorrido repo;
 
         /**
          * @return
          */
-        public Iterable<Parada> findAll(){
-            System.out.println("**** Paradas encontradas con findAll(): ****");
+        public Iterable<PuntoRecorrido> findAll(){
+            System.out.println("**** Puntos recorridos encontrados con findAll(): ****");
 
-            for (Parada parada : repo.findAll()) {
-                System.out.println("Parada encontrado: "+parada.toString());
+            for (PuntoRecorrido ptoRecorrido: repo.findAll()) {
+                System.out.println("Puntos recorridos encontrados: "+ptoRecorrido.toString());
             }
             return repo.findAll();
         }
     }
+    
 }

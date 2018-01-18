@@ -5,10 +5,10 @@
  */
 package com.alex.miruta2017.test.model;
 
-import com.alex.miruta2017.interfaces.RepositorioParada;
-import com.alex.miruta2017.model.Parada;
+import com.alex.miruta2017.interfaces.RepositorioEsquina;
+import com.alex.miruta2017.model.Esquina;
 import com.alex.miruta2017.test.config.ConfigTest;
-import com.alex.miruta2017.test.model.ParadaTest.TestController;
+import com.alex.miruta2017.test.model.EsquinaTest.TestController;
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Assert;
 import org.junit.Test;
@@ -27,13 +27,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 @EnableJpaRepositories("com.alex.miruta2017.interfaces")
 // para reconocer las anotaciones
 @RunWith(SpringRunner.class)
-//@DataJpaTest
 @ContextConfiguration( classes = { TestController.class, ConfigTest.class} )
-//@ContextConfiguration(classes = ConfigTest.class)
 @SpringBootTest
-public class ParadaTest {
+public class EsquinaTest {
     
-    public ParadaTest(){}
+    public EsquinaTest(){}
     
     @Autowired
     private TestController contTest;
@@ -41,19 +39,19 @@ public class ParadaTest {
     
     @Test
     public void test(){
-        Iterable<Parada> list = contTest.findAll();
+        Iterable<Esquina> list = contTest.findAll();
 
         if ( list == null || !list.iterator().hasNext() ){
-            Assert.fail( "No se encontraron paradas" );
+            Assert.fail( "No se encontraron esquinas" );
         }
         else{
-            for ( Parada parada : list ){
-                System.out.println( "Parada encontrada: " + parada.toString());
+            for ( Esquina esquina : list ){
+                System.out.println( "Esquina encontrada: " + esquina.toString());
             }
         }
         
         assertThat(contTest.findAll())
-            .hasSize(2);
+            .hasSize(1);
         
 //        System.out.println("Salto es test!!!!!");
     }
@@ -62,18 +60,19 @@ public class ParadaTest {
     @Component
     static class TestController{
         @Autowired
-        private RepositorioParada repo;
+        private RepositorioEsquina repo;
 
         /**
          * @return
          */
-        public Iterable<Parada> findAll(){
-            System.out.println("**** Paradas encontradas con findAll(): ****");
+        public Iterable<Esquina> findAll(){
+            System.out.println("**** Esquinas encontrados con findAll(): ****");
 
-            for (Parada parada : repo.findAll()) {
-                System.out.println("Parada encontrado: "+parada.toString());
+            for (Esquina esquina : repo.findAll()) {
+                System.out.println("Esquina encontrada: "+esquina.toString());
             }
             return repo.findAll();
         }
     }
+    
 }

@@ -67,6 +67,6 @@ public class Comun extends PuntoRecorrido implements Serializable{
     
     @Override
     public String toString() {
-        return super.getCoordenada().toString(); //To change body of generated methods, choose Tools | Templates.
+        return super.getCoordenada().toString() + " - Punto Comun"; //To change body of generated methods, choose Tools | Templates.
     }
 }
